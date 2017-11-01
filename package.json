@@ -6,19 +6,15 @@
   "main": "server/index.js",
   "scripts": {
     "postinstall": "webpack",
-    "dev": "nodemon --watch server server/index & webpack --watch",
+    "dev": "nodemon --watch server & webpack --watch",
     "start": "node server/index",
-    "test": "ava  -v  --serial 'test/**/*.test.js'",
+    "test": "jest",
     "watch": "nodemon -e js,jsx -x npm test",
     "h:deploy": "git push heroku master",
     "h:migrate": "heroku run knex migrate:latest",
     "h:rollback": "heroku run knex migrate:rollback",
     "h:seed": "heroku run knex seed:run",
     "knex": "knex"
-  },
-  "ava": {
-    "require": "babel-register",
-    "babel": "inherit"
   },
   "babel": {
     "presets": [
@@ -30,8 +26,8 @@
   "author": "EDA",
   "license": "ISC",
   "devDependencies": {
-    "ava": "^0.19.1",
     "enzyme": "^2.8.2",
+    "jest": "^21.2.1",
     "nodemon": "^1.11.0",
     "sqlite3": "^3.1.8",
     "supertest": "^3.0.0"
