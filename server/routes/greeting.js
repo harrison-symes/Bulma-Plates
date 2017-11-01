@@ -1,11 +1,10 @@
-var express = require('express')
-var router = express.Router()
+const express = require('express')
+const router = express.Router()
 
-var greetingsDb = require('../db/greeting')
+const greetingsDb = require('../db/greeting')
 
 router.get('/', (req, res) => {
-  let db = req.app.get('db')
-  greetingsDb.getGreetings(db)
+  greetingsDb.getGreetings()
     .then(greetings => {
       res.json(greetings)
     })

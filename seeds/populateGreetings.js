@@ -1,4 +1,3 @@
-
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('greetings').del()
@@ -8,6 +7,6 @@ exports.seed = function(knex, Promise) {
         {id: 1, text: 'Hello There'},
         {id: 2, text: 'Greetings Friend'},
         {id: 3, text: 'Well Met'}
-      ]);
-    });
-};
+      ])
+    })
+}
