@@ -34,8 +34,18 @@ test('getGreetings will dispatch an action on success', () => {
   const dispatch = jest.fn()
     .mockImplementationOnce(action => {
       expect(action).toEqual(expectedAction)
+      scope.done()
     })
 
   getGreetings()(dispatch)
 
+})
+
+test('getGreetings error', () => {
+  const scope = nock('http://localhost:80')
+    .get('/api/greetings')
+    .reply(404);
+
+  const actual = getGreetings()()
+  expect(actual).toBe(undefined)
 })
