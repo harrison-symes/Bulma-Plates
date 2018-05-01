@@ -1,7 +1,23 @@
-import {getGreetings} from '../../client/actions/greetings'
+import {getGreetings, receiveGreetings} from '../../client/actions/greetings'
 import nock from 'nock'
 
-test('getGreetings will dispatch an action', () => {
+test('Receive Greetings action creator', () => {
+  const fakeGreetings = [
+    'Hello',
+    'Howdy'
+  ]
+
+  const expected = {
+    type: 'RECEIVE_GREETINGS',
+    greetings: fakeGreetings
+  }
+
+  const actual = receiveGreetings(fakeGreetings)
+
+  expect(actual).toEqual(expected)
+})
+
+test('getGreetings will dispatch an action on success', () => {
   const fakeGreetings = [
     'Hello',
     'Greetings'
