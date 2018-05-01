@@ -16,6 +16,7 @@ export function getGreetings () {
           console.error(err.message)
           return
         }
+        console.log(res.body)
         dispatch(receiveGreetings(res.body))
       })
   }
