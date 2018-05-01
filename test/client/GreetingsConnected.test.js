@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 
-import {Greetings} from '../../client/components/Greetings'
+import Greetings from '../../client/components/Greetings'
 import './setup-dom'
 
 import {Provider} from 'react-redux'
@@ -17,14 +17,19 @@ jest.mock('../../client/actions/greetings.js', () => ({
 }))
 
 test('Greetings.jsx with no greetings', () => {
-  const store = mockStore()
+  const store = mockStore({
+    greetings: [{text: 'Hello'}]
+  })
 
-  const wrapper = shallow(<Greetings
-    greetings={[]}
-    dispatch={store.dispatch}
-  />)
+  const wrapper = mount(
+    <Provider store={store}>
+      <Greetings />
+    </Provider>
+  )
 
   expect(wrapper.find('button').text()).toBe('Show Greetings')
+
+  expect(wrapper.find('h1').first().text()).toBe('Hello')
 
   wrapper.find('button').simulate('click')
   expect(store.getActions()).toHaveLength(1)
