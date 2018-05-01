@@ -34,6 +34,7 @@ test('getGreetings will dispatch an action on success', () => {
   const dispatch = jest.fn()
     .mockImplementationOnce(action => {
       expect(action).toEqual(expectedAction)
+      scope.done()
     })
 
   getGreetings()(dispatch)
