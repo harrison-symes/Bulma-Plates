@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/bin/yarn test GreetingsConnected
+  /usr/bin/node /usr/bin/yarn test
 
 PATH: 
   /home/symeshjb/bin:/home/symeshjb/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -31,6 +31,9 @@ npm manifest:
       "h:rollback": "heroku run knex migrate:rollback",
       "h:seed": "heroku run knex seed:run",
       "knex": "knex"
+    },
+    "jest": {
+      "collectCoverage": true
     },
     "babel": {
       "presets": [
@@ -6649,7 +6652,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c jest GreetingsConnected
+  Arguments: -c jest
   Directory: /home/symeshjb/workspace/frontEndTesting
   Output:
   

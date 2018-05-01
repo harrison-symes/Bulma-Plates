@@ -16,6 +16,9 @@
     "h:seed": "heroku run knex seed:run",
     "knex": "knex"
   },
+  "jest": {
+    "collectCoverage": true
+  },
   "babel": {
     "presets": [
       "es2015",

@@ -40,3 +40,12 @@ test('getGreetings will dispatch an action on success', () => {
   getGreetings()(dispatch)
 
 })
+
+test('getGreetings error', () => {
+  const scope = nock('http://localhost:80')
+    .get('/api/greetings')
+    .reply(404);
+
+  const actual = getGreetings()()
+  expect(actual).toBe(undefined)
+})
