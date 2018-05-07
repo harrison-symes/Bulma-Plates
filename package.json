@@ -1,8 +1,8 @@
 {
-  "name": "boilerplate-react-webpack",
+  "name": "Bulma-Plates",
   "version": "0.1.1",
   "description": "A webpack React starter",
-  "repository": "https://github.com/dev-academy-challenges/boilerplate-react-webpack.git",
+  "repository": "https://github.com/harrison-symes/Bulma-Plates.git",
   "main": "server/index.js",
   "scripts": {
     "postinstall": "webpack",
