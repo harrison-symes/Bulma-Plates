@@ -1,6 +1,6 @@
 # A starter webpack project for React, Redux, Express and Knex
 
-This is a rad base for starting a new full-stack project, or just as reference for how to do things the Harrison way (which is with absolutely no test folder, I'll leave that one to Alan)
+This is a rad base for starting a new full-stack project, or just as reference for how to do things the Harrison way.
 
 * Fork this repo to your github
 * Rename your repo according to the app you're building
@@ -14,9 +14,9 @@ knex seed:run
 
 ```
 
-  `npm run dev` for bundling, watch and nodemon
+  `npm run dev` or `yarn dev` for bundling, watch and nodemon
 
-  `npm start` only runs server (setup for heroku)
+  `npm start` or `yarn start` only runs server (setup for heroku)
 
 
 # Heroku!!!
@@ -39,16 +39,14 @@ Check that pg has been added by running `heroku addons` to ensure the postgresql
 
 I have created several npm scripts that will be useful for deploying your app to heroku easily.
 
-`npm run h:deploy` will push your local master branch to your heroku app
+`yarn h:deploy` will push your local master branch to your heroku app
 
-`npm run h:migrate` will run your knex migrations on your deployed heroku app
+`yarn h:migrate` will run your knex migrations on your deployed heroku app
 
-`npm run h:seed` will run your seeds on your deployed app
+`yarn h:seed` will run your seeds on your deployed app
 
 If ever you need to rollback, you can also just use `npm run h:rollback`
 
 
 ## Ta-Da!
 Your app should be deployed!
-
-I can add some exercises/comments to this repo if there is desire for such, but for now, hopefully this proves useful :)
