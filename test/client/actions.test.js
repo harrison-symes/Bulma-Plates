@@ -1,51 +1,32 @@
-import {getGreetings, receiveGreetings} from '../../client/actions/greetings'
-import nock from 'nock'
+import {addCatAction, deleteCatAction} from '../../client/actions/cats'
 
-test('Receive Greetings action creator', () => {
-  const fakeGreetings = [
-    'Hello',
-    'Howdy'
-  ]
+const fakeCat = {
+  name: 'Ming'
+}
 
+test('add cat action does the right stuff', () => {
+  //Arrange
   const expected = {
-    type: 'RECEIVE_GREETINGS',
-    greetings: fakeGreetings
+    type: 'ADD_CAT',
+    cat: fakeCat
   }
-
-  const actual = receiveGreetings(fakeGreetings)
-
+  //Act
+  const actual = addCatAction(fakeCat)
+  //Assert
   expect(actual).toEqual(expected)
+  expect(actual.cat).toBe(expected.cat)
 })
 
-test('getGreetings will dispatch an action on success', () => {
-  const fakeGreetings = [
-    'Hello',
-    'Greetings'
-  ]
-  const scope = nock('http://localhost:80')
-    .get('/api/greetings')
-    .reply(200, fakeGreetings);
-
-  const expectedAction = {
-    type: 'RECEIVE_GREETINGS',
-    greetings: fakeGreetings
+test('delete cat action does the coolest damn thing', () => {
+  //Arrange
+  const expected = {
+    type: 'DELETE_CAT',
+    name: fakeCat.name
   }
 
-  const dispatch = jest.fn()
-    .mockImplementationOnce(action => {
-      expect(action).toEqual(expectedAction)
-      scope.done()
-    })
+  //Act
+  const actual = deleteCatAction(fakeCat.name)
 
-  getGreetings()(dispatch)
-
-})
-
-test('getGreetings error', () => {
-  const scope = nock('http://localhost:80')
-    .get('/api/greetings')
-    .reply(404);
-
-  const actual = getGreetings()()
-  expect(actual).toBe(undefined)
+  //Assert
+  expect(actual).toEqual(expected)
 })

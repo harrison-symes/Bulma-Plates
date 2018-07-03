@@ -12,6 +12,7 @@ export function deleteCatAction (name) {
   }
 }
 
+
 // const addCatAction = cat => ({
 //   type: 'ADD_CAT',
 //   cat

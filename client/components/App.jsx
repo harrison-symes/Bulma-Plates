@@ -10,7 +10,6 @@ const App = () => (
     <div className='app-container section'>
       <h1>Hello World</h1>
       <AddCatButton />
-      <DeleteCatButton />
       <Cats />
     </div>
   </Router>
