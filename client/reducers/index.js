@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux'
 
-import cats from './cats'
+// import example from './example'
 
 export default combineReducers({
-  cats: cats
+  // example
 })
